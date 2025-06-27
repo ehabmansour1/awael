@@ -1084,7 +1084,8 @@ body {
 }
 .testimonial-image img {
   height: 300px;
-  object-fit: cover;
+  object-fit:contain;
+  max-width: 100%;
 }
 
 /* Maps Section */
