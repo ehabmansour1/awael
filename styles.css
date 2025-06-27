@@ -553,7 +553,7 @@ body {
 }
 
 .stars {
-  color: var(--accent-color);
+  color: #eb954a;
   font-size: 1.4rem;
   margin-bottom: 25px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
