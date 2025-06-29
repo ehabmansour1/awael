@@ -85,12 +85,34 @@ class TestimonialsSlider {
   }
 
   showTestimonial(index) {
+    // Hide all testimonials first
     this.testimonials.forEach((testimonial, i) => {
       testimonial.classList.remove("active");
-      if (i === index) {
-        testimonial.classList.add("active");
-      }
+      testimonial.style.display = "none";
+      testimonial.style.opacity = "0";
+      testimonial.style.transform = "translateY(30px)";
     });
+
+    // Show the active testimonial with animation
+    const activeTestimonial = this.testimonials[index];
+    activeTestimonial.style.display = "block";
+
+    // Trigger reflow to ensure display change takes effect
+    activeTestimonial.offsetHeight;
+
+    // Animate the active testimonial
+    activeTestimonial.style.opacity = "1";
+    activeTestimonial.style.transform = "translateY(0)";
+    activeTestimonial.classList.add("active");
+
+    // Animate stars with a staggered effect
+    const stars = activeTestimonial.querySelectorAll(".stars i");
+    stars.forEach((star, starIndex) => {
+      star.style.animation = "none";
+      star.offsetHeight; // Trigger reflow
+      star.style.animation = `starPop 0.6s ease-out ${starIndex * 0.1}s both`;
+    });
+
     this.currentIndex = index;
   }
 
